@@ -1,0 +1,12 @@
+---
+- name: Configure Oracle Linux 7 with Oracle Database 12c
+  hosts: oradb
+  sudo: true
+  vars_files:
+    - vars/infra-vars.yml
+    - vars/db-vars.yml
+    - vars/secrets.yml
+  roles:
+    - role: linux-oracle
+    - role: oracle-install
+      sudo_user: '{{ oracle_user }}'
